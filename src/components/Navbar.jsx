@@ -4,10 +4,17 @@ import { Button } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
 import image from "../../src/assets/images/logo.png";
+import { authClient, useSession } from "@/lib/auth-client";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const {data :session, isPending} = useSession();
+  console.log('data in nav:',session , 'pending',isPending)
+  const user = session?.user;
 
+  const handleSignOut =async()=>{
+    await authClient.signOut();
+  }
   return (
     <nav className="sticky top-0 z-40 w-full border-b border-white/5 bg-[#222222]">
       <header className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
@@ -75,12 +82,19 @@ export default function Navbar() {
 
           <div className="h-5 w-px bg-white/15" />
 
-          <Link href="/login" className="text-sm font-medium text-indigo-400 hover:text-indigo-300">
+          {user ? <>
+            Hi,{user.name}!
+            <Button onClick={handleSignOut} variant="danger">
+              Sign Out
+            </Button>
+          </> : <>
+            <Link href="/login" className="text-sm font-medium text-indigo-400 hover:text-indigo-300">
             Login
           </Link>
           <Link href="/signup" className="text-sm font-medium text-indigo-400 hover:text-indigo-300">
             SignUp
           </Link>
+          </>}
 
           <Button className="rounded-full bg-[#5C53FE] px-5 font-medium text-white hover:bg-indigo-400">
             Get Started
