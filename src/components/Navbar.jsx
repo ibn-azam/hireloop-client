@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
-import image from "../../src/assets/images/logo.png"
+import image from "../../src/assets/images/logo.png";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -79,7 +79,7 @@ export default function Navbar() {
             Sign In
           </Link>
 
-          <Button className="rounded-full bg-indigo-500 px-5 font-medium text-white hover:bg-indigo-400">
+          <Button className="rounded-full bg-[#5C53FE] px-5 font-medium text-white hover:bg-indigo-400">
             Get Started
           </Button>
         </div>

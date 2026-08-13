@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
-
+import image from "../../src/assets/images/logo.png";
+import Image from "next/image";
 
 export default function Footer() {
   const linkColumns = [
@@ -27,15 +28,12 @@ export default function Footer() {
         {/* Logo + tagline */}
         <div className="max-w-xs">
           <Link href="/" className="flex items-center">
-            <span className="text-xl font-bold tracking-tight text-white">
-              hire
-            </span>
-            <span className="relative inline-flex items-center text-xl font-bold tracking-tight text-white">
-              l
-              <span className="mx-[1px] inline-block h-[14px] w-[14px] rounded-full bg-orange-500" />
-              <span className="mx-[1px] inline-block h-[14px] w-[14px] rounded-full bg-blue-500" />
-              p
-            </span>
+            <Image
+                width={100}
+                height={100}
+                src={image}
+                alt="logo"
+            />
           </Link>
           <p className="mt-4 text-sm leading-relaxed text-gray-400">
             The AI-native career platform. Built for people who take their
