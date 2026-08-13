@@ -75,8 +75,11 @@ export default function Navbar() {
 
           <div className="h-5 w-px bg-white/15" />
 
-          <Link href="/" className="text-sm font-medium text-indigo-400 hover:text-indigo-300">
-            Sign In
+          <Link href="/login" className="text-sm font-medium text-indigo-400 hover:text-indigo-300">
+            Login
+          </Link>
+          <Link href="/signup" className="text-sm font-medium text-indigo-400 hover:text-indigo-300">
+            SignUp
           </Link>
 
           <Button className="rounded-full bg-[#5C53FE] px-5 font-medium text-white hover:bg-indigo-400">
