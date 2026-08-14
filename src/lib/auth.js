@@ -15,5 +15,12 @@ export const auth = betterAuth({
   }),
    emailAndPassword: { 
     enabled: true, 
-  }, 
+  },
+  user:{
+    additionalFields:{
+      role:{
+        default: "seeker"
+      }
+    }
+  }
 });

@@ -1,7 +1,7 @@
 'use client'
 import { authClient } from "@/lib/auth-client";
 import {Check} from "@gravity-ui/icons";
-import {Button, Description, FieldError, Form, Input, Label, TextField} from "@heroui/react";
+import {Button, Description, FieldError, Form, Input, Label, Radio, RadioGroup, TextField} from "@heroui/react";
 import { useRouter } from "next/navigation";
 
 const SignupForm = () => {
@@ -15,6 +15,7 @@ const SignupForm = () => {
             image : userData.image,
             email : userData.email,
             password : userData.password,
+            role : userData.role, 
         });
         if(data){
             router.push('/login')
@@ -82,6 +83,30 @@ const SignupForm = () => {
         <Description>Must be at least 8 characters with 1 uppercase and 1 number</Description>
         <FieldError />
       </TextField>
+      {/* Radio for role input */}
+        <div className="flex flex-col gap-4">
+      <Label>Subscription plan</Label>
+      <RadioGroup defaultValue="seeker" name="role" orientation="horizontal">
+        <Radio value="seeker">
+          <Radio.Content>
+            <Radio.Control>
+              <Radio.Indicator />
+            </Radio.Control>
+            Seeker
+          </Radio.Content>
+        </Radio>
+        <Radio value="requiter">
+          <Radio.Content>
+            <Radio.Control>
+              <Radio.Indicator />
+            </Radio.Control>
+           Requiter
+          </Radio.Content>
+        </Radio>
+       
+      </RadioGroup>
+    </div>
+
       <div className="flex gap-2">
         <Button type="submit">
           <Check />
